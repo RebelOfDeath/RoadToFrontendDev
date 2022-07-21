@@ -7,6 +7,12 @@
     --hover-link-nav: #8a8a8a;
     --source-sans: 'Source Sans Pro', sans-serif;
     --open-sans: "Open Sans ", sans-serif;
+
+    --ham-menu-size: 100px;
+    --ham-menu-border-size: 2px;
+    --ham-menu-line-height: calc(var(--ham-menu-size) * 0.07);
+    --error-margin: calc(var(--ham-menu-size)*0.13) /*smaller sizes increase the value from 0.13 and for bigger sizes decrease it*/
+
 }
 
 *,
@@ -30,9 +36,9 @@ body {
 }
 
 .ham-menu {
-    width: 100px;
-    height: 100px;
-    border: 3px white solid;
+    width: var(--ham-menu-size);
+    height: var(--ham-menu-size);
+    border: var(--ham-menu-border-size) var(--white) solid;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,11 +50,11 @@ body {
 }
 
 .ham-line{
-    width: 90%;
-    height: 7%;
+    width: calc(var(--ham-menu-size) * 0.80);
+    height: var(--ham-menu-line-height);
     background-color: var(--white);
     border-radius: 1rem;
-    margin: 10px;
+    margin: calc(var(--ham-menu-size) * 0.1);
 }
 
 .ham-first-line,
@@ -62,11 +68,11 @@ body {
 }
 
 .ham-menu[active="true"]>.ham-first-line{
-    transform: translateY(35px) rotate(45deg);
+    transform: translateY(calc(var(--ham-menu-size)*0.5 - (var(--ham-menu-line-height)*0.5) - var(--error-margin))) rotate(45deg);
 }
 
 .ham-menu[active="true"]>.ham-third-line{
-    transform: translateY(-30px) rotate(-45deg);
+    transform: translateY(calc((var(--ham-menu-line-height)*0.5) - var(--ham-menu-size)*0.5 + var(--error-margin))) rotate(-45deg);
 }
 
 
